@@ -1,10 +1,15 @@
 ## 初始化一个本地仓库
 ```bash
-git init #初始化了一个本地仓库，建立了一个.git文件夹，被称为附属于该仓库的工作树
+$ git init #初始化了一个本地仓库，建立了一个.git文件夹，被称为附属于该仓库的工作树
 ```
 ## 查看仓库状态
 ```bash
-git status #记录着当前处于master还是branch分支，有无需要commit的文件等
+$ git status #记录着当前处于master还是branch分支，有无需要commit的文件等
+##以下是状态
+位于分支 master
+要提交的变更：
+  （使用 "git restore --staged <文件>..." 以取消暂存）
+        修改：     "git\345\255\246\344\271\240.md"
 ```
 ## 上传文件到本地仓库
 ```bash
@@ -14,8 +19,8 @@ git add . #同上
 ```
 ## 提交到github仓库
 ```bash
-git commit -m “本次提交的备注” #上传到master分支，并打上备注
-git commit #可以直接commit，之后再详细编辑备注
+$ git commit -m “本次提交的备注” #上传到master分支，并打上备注
+$ gitgit commit #可以直接commit，之后再详细编辑备注
 ```
 ## 查看提交日志
 ```bash
