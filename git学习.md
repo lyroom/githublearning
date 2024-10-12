@@ -19,5 +19,23 @@ git commit #可以直接commit，之后再详细编辑备注
 ```
 ## 查看提交日志
 ```bash
-git log
+$ git log
+##以下是日志内容
+commit b3f611dafea403f51c52a04491a23e1e4e059190 (HEAD -> master)
+Author: lyroom <codingfish@outlook.com>
+Date:   Sat Oct 12 13:07:04 2024 +0800
+
+    这是我的第二次详细修改
+    
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+commit d1f94f3bb752ad1fc2551cd9ccb06c8eee5a39c8
+Author: lyroom <codingfish@outlook.com>
+Date:   Sat Oct 12 13:04:45 2024 +0800
+
+    第一次提交
 ```
+
+查看日志常用快捷键：和man操作，less操作基本一样
+f：往后翻一页
+b：往前翻一页
