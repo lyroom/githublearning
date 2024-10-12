@@ -15,6 +15,7 @@ git add . #同上
 ## 提交到github仓库
 ```bash
 git commit -m “本次提交的备注” #上传到master分支，并打上备注
+git commit #可以直接commit，之后再详细编辑备注
 ```
 ## 查看提交日志
 ```bash
