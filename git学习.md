@@ -3,7 +3,8 @@
 
 > Repository,index,workspace，都存储在本地
 
-## git init-初始化一个本地仓库
+## 一. git的基本操作
+### git init-初始化一个本地仓库
 ```bash
 $ git init #初始化了一个本地仓库，建立了一个.git文件夹
 ```
@@ -53,18 +54,18 @@ $ git status #记录着当前处于master还是branch分支，有无需要commit
   （使用 "git restore --staged <文件>..." 以取消暂存）
         修改：     "git\345\255\246\344\271\240.md"
 ```
-## gid add-向暂存区添加文件
+### gid add-向暂存区添加文件
 ```bash
 git add xxx.cpp #上传一个xxx.cpp文件
 git add -A #上传当前文件夹下的所有文件
 git add . #同上
 ```
-## git commit-提交到本地仓库
+### git commit-提交到本地仓库
 ```bash
 $ git commit -m “本次提交的备注” #上传到master分支，并打上备注
 $ gitgit commit #可以直接commit，之后再详细编辑备注
 ```
-## git log-查看提交日志
+### git log-查看提交日志
 查看全部日志
 ```bash
 $ git log
@@ -128,11 +129,11 @@ index 5f9894b..ffbea86 100644
  第六次修改
 +第七次修改
 ```
-## git diff-查看更改前后的区别
+### git diff-查看更改前后的区别
 
 git diff命令可以查看工作树、暂存区、仓库最新提交之间的差别。
 
-### 查看工作树和暂存区的区别
+#### 查看工作树和暂存区的区别
 ```bash
 $ git diff
 ```
@@ -143,8 +144,40 @@ vscode配合gitlens插件可以清楚看到本地工作目录（左边）和暂�
 这两种方法都可以看出工作树和暂存区的区别
 当我git add -A后，git diff就无任何输出了
 
-### 查看工作树和本地仓库最新提交的差别
+#### 查看工作树和本地仓库最新提交的差别
 ```bash
 $ git diff HEAD
 ```
 由于本地工作树和暂存区内容是一样的， 这个命令比较的就是仓库的最新提交和工作树的区别，比较的结果形式和上面的比较是一样的，就不贴图了
+
+## 二. 分支操作（本部分由分支1完成）
+通常一个大型的项目视需要多人合作完成的，每个人负责不同的模块和功能，这通常是并行进行的，所以我们需要分支进行，在各自的功能没有完全上线，各个分支和已经上线的程序master应互不干扰！
+![](branch.png)
+分支1完成后，需要与master合并
+![](branch1.png)
+### git branch-显示所有的分支
+```bash
+$ git branch
+* master
+```
+当前只有一个master分支，*指向了master分支，表示当前处于master分支下
+### git checkout -b-创建切换分支
+创建一个名字为分支1的分支，并切换到分支1下：
+```bash
+$ git checkout -b 分支1
+```
+查看结果：
+```bash
+$ git branch
+  master
+* 分支1
+```
+等价操作：
+```bash
+git branch 分支1 #创建一个名为分支1的分支
+git checkout 分支1 #切换到分支1下
+```
+提交修改：
+```bash
+git add -A
+git commit -u "分支1的第一次提交"
