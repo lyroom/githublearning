@@ -162,6 +162,7 @@ $ git branch
 ```
 当前只有一个master分支，*指向了master分支，表示当前处于master分支下
 ### git checkout -b-创建切换分支
+#### 创建切换分支1
 创建一个名字为分支1的分支，并切换到分支1下：
 ```bash
 $ git checkout -b 分支1
@@ -180,4 +181,11 @@ git checkout 分支1 #切换到分支1下
 提交修改：
 ```bash
 git add -A
-git commit -u "分支1的第一次提交"
+git commit -m "分支1的第一次提交"
+```
+#### 切换到到master分支
+```bash
+git checkout master #切换到主分支
+```
+继续查看当前文件，发现并没有分支操作这部分的文字
+
