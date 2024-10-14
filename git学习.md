@@ -3,6 +3,7 @@
 
 > Repository,index,workspace，都存储在本地
 
+## 一. git的基本操作
 ### git init-初始化一个本地仓库
 ```bash
 $ git init #初始化了一个本地仓库，建立了一个.git文件夹
