@@ -3,7 +3,7 @@
 
 > Repository,index,workspace，都存储在本地
 
-## git init-初始化一个本地仓库
+### git init-初始化一个本地仓库
 ```bash
 $ git init #初始化了一个本地仓库，建立了一个.git文件夹
 ```
@@ -53,18 +53,18 @@ $ git status #记录着当前处于master还是branch分支，有无需要commit
   （使用 "git restore --staged <文件>..." 以取消暂存）
         修改：     "git\345\255\246\344\271\240.md"
 ```
-## gid add-向暂存区添加文件
+### gid add-向暂存区添加文件
 ```bash
 git add xxx.cpp #上传一个xxx.cpp文件
 git add -A #上传当前文件夹下的所有文件
 git add . #同上
 ```
-## git commit-提交到本地仓库
+### git commit-提交到本地仓库
 ```bash
 $ git commit -m “本次提交的备注” #上传到master分支，并打上备注
 $ gitgit commit #可以直接commit，之后再详细编辑备注
 ```
-## git log-查看提交日志
+### git log-查看提交日志
 查看全部日志
 ```bash
 $ git log
@@ -128,11 +128,11 @@ index 5f9894b..ffbea86 100644
  第六次修改
 +第七次修改
 ```
-## git diff-查看更改前后的区别
+### git diff-查看更改前后的区别
 
 git diff命令可以查看工作树、暂存区、仓库最新提交之间的差别。
 
-### 查看工作树和暂存区的区别
+#### 查看工作树和暂存区的区别
 ```bash
 $ git diff
 ```
@@ -143,7 +143,7 @@ vscode配合gitlens插件可以清楚看到本地工作目录（左边）和暂�
 这两种方法都可以看出工作树和暂存区的区别
 当我git add -A后，git diff就无任何输出了
 
-### 查看工作树和本地仓库最新提交的差别
+#### 查看工作树和本地仓库最新提交的差别
 ```bash
 $ git diff HEAD
 ```
