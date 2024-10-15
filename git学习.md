@@ -409,3 +409,11 @@ f77bdd9 HEAD@{8}: checkout: moving from 分支1 to master
 ```bash
 $ git reset --hard f77bdd9
 ```
+目前状态如下：
+![](next01.png)
+合并fix-B到master:
+```bash
+$ git merge --no-ff fix-B
+```
+达到最终状态：
+![](next.png)
