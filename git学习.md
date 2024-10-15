@@ -118,7 +118,6 @@ Date:   Sat Oct 12 13:04:45 2024 +0800
 ```bash
 $ git log -p README.md
 
-
 ##以下是对比内容
 Author: lyroom <codingfish@outlook.com>
 Date:   Sat Oct 12 15:33:31 2024 +0800
@@ -133,6 +132,11 @@ index 5f9894b..ffbea86 100644
  第六次修改
 +第七次修改
 ```
+也可以以[图形的方式查看提交历史](#git-log-以图表的形式查看分支)
+```bash
+$ git log --graph
+```
+
 ### git diff-查看更改前后的区别
 
 git diff命令可以查看工作树、暂存区、仓库最新提交之间的差别。
@@ -336,4 +340,72 @@ git log --graph
 #### 回到分支1创建前
 ```bash
 git reset --hard hash值 #这个hash值就是每次commit后的hash值
+```
+> 如果你没有做好标记寻找创建分支前的hash值的技巧：git log --graph ,找到分叉前的一个提交的hash值!，如下就是第8次修改的hash值
+>
+> | | Author: lyroom <codingfish@outlook.com>
+>
+> | | Date:   Mon Oct 14 16:59:48 2024 +0800
+>
+> | | 
+>
+> | |     master的第10次提交
+>
+> | | 
+>
+> \* | commit 7362bced26a2648153fac6779e4c5d2067eab42b
+>
+> |/  Author: lyroom <codingfish@outlook.com>
+>
+> |   Date:   Mon Oct 14 16:57:45 2024 +0800
+>
+> |   
+>
+> |       master下的第九次修改
+>
+> | 
+>
+> \* commit 61126b34e2330bad3945c616374df80de7346be1
+>
+> | Author: lyroom <codingfish@outlook.com>
+>
+> | Date:   Mon Oct 14 16:17:33 2024 +0800
+>
+> | 
+>
+> |     第8次修改
+>
+> | 
+>
+> \* commit ce7d1ccfd971bed9e79a3ececcdb67df97428692
+>
+> | Author: lyroom <codingfish@outlook.com>
+>
+> | Date:   Mon Oct 14 16:15:19 2024 +0800
+### 创建分支fix-B
+当前状态：
+![](分支fix-B.png)
+fix-B的下一个目标：
+![](next.png)
+
+### 回溯到分支1合并后的状态
+#### git  reflog-查看当前仓库的操作日志
+使用git reflog查看当前仓库的操作日志，找到回溯之前的hash值
+```bash
+$ git reflog
+
+d261a61 (HEAD -> 分支1) HEAD@{0}: commit: 来自分支1的修改
+65f7981 HEAD@{1}: checkout: moving from fix-B to 分支1
+083f020 (fix-B) HEAD@{2}: commit: 创建fix-B
+61126b3 (master) HEAD@{3}: checkout: moving from master to fix-B
+61126b3 (master) HEAD@{4}: checkout: moving from 分支1 to master
+65f7981 HEAD@{5}: commit: 分支1的修改
+3574200 HEAD@{6}: checkout: moving from master to 分支1
+61126b3 (master) HEAD@{7}: reset: moving to 61126b34e2330bad3945c616374df80de7346be1
+f77bdd9 HEAD@{8}: checkout: moving from 分支1 to master
+```
+
+回溯：
+```bash
+$ git reset --hard f77bdd9
 ```
