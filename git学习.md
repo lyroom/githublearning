@@ -389,3 +389,23 @@ fix-B的下一个目标：
 ![](next.png)
 
 ### 回溯到分支1合并后的状态
+#### git  reflog-查看当前仓库的操作日志
+使用git reflog查看当前仓库的操作日志，找到回溯之前的hash值
+```bash
+$ git reflog
+
+d261a61 (HEAD -> 分支1) HEAD@{0}: commit: 来自分支1的修改
+65f7981 HEAD@{1}: checkout: moving from fix-B to 分支1
+083f020 (fix-B) HEAD@{2}: commit: 创建fix-B
+61126b3 (master) HEAD@{3}: checkout: moving from master to fix-B
+61126b3 (master) HEAD@{4}: checkout: moving from 分支1 to master
+65f7981 HEAD@{5}: commit: 分支1的修改
+3574200 HEAD@{6}: checkout: moving from master to 分支1
+61126b3 (master) HEAD@{7}: reset: moving to 61126b34e2330bad3945c616374df80de7346be1
+f77bdd9 HEAD@{8}: checkout: moving from 分支1 to master
+```
+
+回溯：
+```bash
+$ git reset --hard f77bdd9
+```
