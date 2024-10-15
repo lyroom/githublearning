@@ -490,7 +490,7 @@ Date:   Tue Oct 15 14:02:40 2024 +0800
 
 当然前提是你需要在github创建一个仓库，如果本地写了README.md就不要勾选创建README.md文档了
 
-### 1. 添加远程仓库
+### 1. git remote add-添加远程仓库
 ```bash
 git remote add <远程名称> <远程仓库URL> # 添加远程仓库命令格式
 git remote add origin https://github.com/yourusername/your-repo.git # https方式添加仓库
@@ -510,6 +510,39 @@ origin	https://github.com/lyroom/githublearning.git (push)
 
 
 
-### 2. 推送至远程仓库
+### 2.git push-推送本地仓库到远程仓库
+#### 推送至远程仓库master分支
 
 ```bash
+$ git push -u origin master #推送本地仓库到远程仓库 u:upstream上游的缩写，
+    # -u :将oring设置为上游仓库
+
+
+枚举对象中: 111, 完成.
+对象计数中: 100% (111/111), 完成.
+使用 20 个线程进行压缩
+压缩对象中: 100% (102/102), 完成.
+写入对象中: 100% (108/108), 1.18 MiB | 28.73 MiB/s, 完成.
+总共 108（差异 51），复用 0（差异 0），包复用 0
+remote: Resolving deltas: 100% (51/51), done.
+To https://github.com/lyroom/githublearning.git
+   e362a53..99a3c4e  master -> master
+分支 'master' 设置为跟踪来自 'origin' 的远程分支 'master'。
+```
+#### 推送至远程仓库master以外分支
+```bash
+$ git checkout fix-B #切换到fix-B分支
+$ git push -u origin  fix-B #推送本地分支fix-B到远程仓库
+```
+
+### 3.git pull-拉取远程仓库到本地仓库
+```bash
+$ git pull origin master #拉取远程仓库的master分支到本地仓库
+```
+
+### 4.git clone-克隆远程仓库到本地
+```bash
+$ git clone https://github.com/lyroom/githublearning.git #克隆远程仓库到本地
+```
+
+### 5.git branch-分支管理
