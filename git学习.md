@@ -216,7 +216,7 @@ git checkout -
   - 每个特性分支的命名通常与开发的功能相关，如 `feature/login-system` 或 `feature/add-profile-page`。
   - 开发人员可以自由地在特性分支上进行实验，而不会影响到其他开发者的工作或主干分支的稳定性。
   - 开发完成后，特性分支会通过 Pull Request 进行代码审核，测试通过后才合并到主干分支。
-流程：
+  流程：
 1. 从主干分支拉取最新代码，创建一个新的特性分支。
 2. 在特性分支上开发和测试功能。
 3. 开发完成后，提交 Pull Request 以请求将特性分支的代码合并到主干分支。
@@ -233,12 +233,64 @@ git checkout master
 ```bash 
 git merge --no-ff 分支1
 ```
+3.冲突解决
+每次的合并并都不是一帆风顺的，如果分支修改了相同的文件，就会产生冲突，需要**手动解决冲突**
+以下是合并后的报错，提示有冲突：
+```bash
+$ git merge --no-ff 分支1
+
+
+自动合并 git学习.md
+冲突（内容）：合并冲突于 git学习.md
+自动合并失败，修正冲突然后提交修正的结果。
+```
+解决办法：
+1.查看合并的状态，找到冲突的文件
+```bash
+git status
+
+
+位于分支 master
+您的分支领先 'origin/master' 共 16 个提交。
+  （使用 "git push" 来发布您的本地提交）
+
+您有尚未合并的路径。
+  （解决冲突并运行 "git commit"）
+  （使用 "git merge --abort" 终止合并）
+
+要提交的变更：
+        新文件：   fix-B.png
+
+未合并的路径：
+  （使用 "git add <文件>..." 标记解决方案）
+        双方修改：   "git学习.md"
+```
+2.打开冲突的文件（git学习.md），解决冲突
+打开文件，会发现文件中有以下的标注，如下：
+```plaintext
+<<<<<<< HEAD（当前分支的内容）
+这是当前分支的内容
+======= #分割线，上面的是master内容，下面是分支1的内容
+这是分支1的内容
+>>>>>>> 分支1（传入合并分支的内容）
+```
+
+
+
+3.提交解决冲突后的文件
+```bash
+git add git学习.md
+git commit -m "解决冲突"
+```
+4.合并完成
+```bash
+git merge 分支1
+```
+
 ### git log-以图表的形式查看分支
 可以以图形的方式查看分支的合并情况，并且看到分支的提交记录
 ```bash
 git log --graph
-
-
 
 
 *   commit 307375175df620d5a6e9e913a0c92a61c5af91a7 (HEAD -> master)
@@ -276,4 +328,13 @@ git log --graph
 | * commit 3aa23441ddb6cdf4ff390d191b69850395fd2e6c
 | | Author: lyroom <codingfish@outlook.com>
 ......
+```
+## 三. 更改提交的操作
+### git reset-回溯历史版本
+为了有助于学习，我们先回到创建分支1的时候，然后创建一个fix—B的特性分支
+![](fix-B.png)
+
+#### 回到分支1创建前
+```bash
+git reset --hard hash值 #这个hash值就是每次commit后的hash值
 ```
