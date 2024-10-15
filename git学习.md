@@ -448,9 +448,9 @@ Date:   Tue Oct 15 13:36:28 2024 +0800
 $ git log
 
 
-commit 073bf4660dd303c42768dbd3dc2a6c7f68e854e9 (HEAD -> master)
+commit 2979c94b8b6269cfb16c01a730098d6b2ec6ad4a (HEAD -> master)
 Author: lyroom <codingfish@outlook.com>
-Date:   Tue Oct 15 13:58:19 2024 +0800
+Date:   Tue Oct 15 14:02:40 2024 +0800
 
     又添加了几个空格,修改3次
 
@@ -468,8 +468,48 @@ Date:   Tue Oct 15 13:56:03 2024 +0800
 ```
 这些仅仅都是些微的修改，但是提交了多次，我们可以使用git rebase -i命令，修改合并这些提交信息。如下：  
 ```bash
-git rebase -i HEAD~3 # 修改最近3次提交信息
-
-
-
+$ git rebase -i HEAD~3 # 修改最近3次提交信息
 ```
+合并后的commit的hash值，时间和最新的一致，但是提交信息已经修改了
+```bash
+$ git log
+
+
+commit 2979c94b8b6269cfb16c01a730098d6b2ec6ad4a (HEAD -> master)
+Author: lyroom <codingfish@outlook.com>
+Date:   Tue Oct 15 14:02:40 2024 +0800
+
+    合并备注信息
+```
+> 虽然'git rebase -i' 和 'git commit --amend' 都能修改commit的备注信息，但是
+> 'git rebase -i' 可以合并多次提交，
+> 'git commit --amend' 只能修改最近一次提交的备注信息。
+
+## 四. 推送至远程仓库
+前面的所有操作都是基于本地的操作，接下来我们要进行的是远程仓库的操作。
+
+当然前提是你需要在github创建一个仓库，如果本地写了README.md就不要勾选创建README.md文档了
+
+### 1. 添加远程仓库
+```bash
+git remote add <远程名称> <远程仓库URL> # 添加远程仓库命令格式
+git remote add origin https://github.com/yourusername/your-repo.git # https方式添加仓库
+```
+- `<远程名称>`：为远程仓库指定的别名，常用的是 `origin`，但您可以根据需要自定义名称。
+- `<远程仓库URL>`：远程仓库的实际地址。它可以是 HTTPS 或 SSH 的 URL，格式如下：
+  - HTTPS: `https://github.com/user/repo.git`
+  - SSH: `git@github.com:user/repo.git`
+
+```bash
+$ git remote add origin https://github.com/lyroom/githublearning.git #用户名：lyroom,仓库名字：githublearning
+$ git remote -v #查看远程仓库和url
+
+origin	https://github.com/lyroom/githublearning.git (fetch)
+origin	https://github.com/lyroom/githublearning.git (push)
+```
+
+
+
+### 2. 推送至远程仓库
+
+```bash
