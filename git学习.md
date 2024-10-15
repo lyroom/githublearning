@@ -543,7 +543,8 @@ $ git push -u origin  fix-B #推送本地分支fix-B到远程仓库
 ```
 ![](branchs.png)
 
-### 3.git clone-克隆远程仓库到本地
+## 五.从远程仓库获取
+### 1.git clone-克隆远程仓库到本地
 #### 获取远程仓库（master）
   首先我们切换到其他目录下
 ```bash
@@ -600,10 +601,11 @@ remote: Resolving deltas: 100% (1/1), completed with 1 local object.
 To https://github.com/lyroom/githublearning.git
    083f020..bfde7fb  fix-B -> fix-B
 ```
-### 3.git pull-拉取远程仓库到本地仓库
+### 2.git pull-拉取远程仓库到本地仓库
 
 刚刚在githublearning的仓库中修改了fix-B分支的内容并且上传到了github，但是我们gitlearnging仓库中的fix-B分支并没有更新，所以我们需要拉取远程仓库的fix-B分支到本地仓库
 > 注意要切换到最开始的项目目录(githublearning--->gitlearning)
 ```bash
+$ git checkout fix-B #切换到fix-B分支
 $ git pull origin fix-B #拉取远程仓库的master分支到本地仓库
 ```
