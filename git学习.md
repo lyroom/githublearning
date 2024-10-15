@@ -2,6 +2,10 @@
 ![](GitHub.webp)
 
 > Repository,index,workspace，都存储在本地
+这是git操作的基本流程
+![](GitHub.webp)
+
+> Repository,index,workspace，都存储在本地
 
 ## 一. git的基本操作（这部分由master完成）
 ### git init-初始化一个本地仓库
@@ -230,6 +234,46 @@ git checkout master
 git merge --no-ff 分支1
 ```
 ### git log-以图表的形式查看分支
+可以以图形的方式查看分支的合并情况，并且看到分支的提交记录
 ```bash
-git log --graph --decorate --oneline --all
+git log --graph
+
+
+
+
+*   commit 307375175df620d5a6e9e913a0c92a61c5af91a7 (HEAD -> master)
+|\  Merge: 788c7a9 c4687fb
+| | Author: lyroom <codingfish@outlook.com>
+| | Date:   Tue Oct 15 09:32:29 2024 +0800
+| | 
+| |     Merge branch '分支1'
+| | 
+| * commit c4687fbd37f633b82b74ad6048daf356610b4c03 (分支1)
+| | Author: lyroom <codingfish@outlook.com>
+| | Date:   Tue Oct 15 09:31:23 2024 +0800
+| | 
+| |     这是分支一的第五次修改
+| | 
+* | commit 788c7a90543f684b062e3b514db4adcbdd52cf99
+| | Author: lyroom <codingfish@outlook.com>
+| | Date:   Tue Oct 15 09:27:33 2024 +0800
+| | 
+| |     master merge后的第一次提交
+| | 
+* | commit c9cc7dcb6d5283b0dfd4fc149d067c70940a867f
+| | Author: lyroom <codingfish@outlook.com>
+| | Date:   Tue Oct 15 09:23:37 2024 +0800
+| | 
+| |     real mergegit add -A!
+| | 
+* | commit ac08a828e2279d605a40a6a3d674ec78b7cdf949
+|\| Merge: 9c20e8d 3aa2344
+| | Author: lyroom <codingfish@outlook.com>
+| | Date:   Tue Oct 15 09:16:17 2024 +0800
+| | 
+| |     第一次合并后的提交
+| | 
+| * commit 3aa23441ddb6cdf4ff390d191b69850395fd2e6c
+| | Author: lyroom <codingfish@outlook.com>
+......
 ```
