@@ -229,3 +229,7 @@ git checkout master
 ```bash 
 git merge --no-ff 分支1
 ```
+### git log-以图表的形式查看分支
+```bash
+git log --graph --decorate --oneline --all
+```
