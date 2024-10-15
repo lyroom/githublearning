@@ -1,10 +1,5 @@
 这是git操作的基本流程
 ![](GitHub.webp)
-
-> Repository,index,workspace，都存储在本地
-这是git操作的基本流程
-![](GitHub.webp)
-
 > Repository,index,workspace，都存储在本地
 
 ## 一. git的基本操作（这部分由master完成）
