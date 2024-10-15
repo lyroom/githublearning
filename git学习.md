@@ -415,5 +415,61 @@ $ git reset --hard f77bdd9
 ```bash
 $ git merge --no-ff fix-B
 ```
-达到最终状态：
+消除冲突后，达到最终状态：
 ![](next.png)
+
+### git commit --amend-修改最新的一次commit信息
+查看git log:
+```bash
+commit b8c8f1ba295a524f8b85593aa2cde9c233900e61 (HEAD -> master)
+Merge: ac54cd9 083f020
+Author: lyroom <codingfish@outlook.com>
+Date:   Tue Oct 15 13:36:28 2024 +0800
+
+    master和fix-B冲突消除
+```
+上次在消除冲突后，master又commit一次，这次提交本质是无意义的，因为没有冲突，就不需要提交了，因此需要修改提交备注信息：
+```bash
+$ git commit --amend
+```
+修改提交信息为：合并master和fix-B：
+```bash
+commit 9441272bca5d390e54cfd05ba8b6ead3412c72b7 (HEAD -> master)
+Merge: ac54cd9 083f020
+Author: lyroom <codingfish@outlook.com>
+Date:   Tue Oct 15 13:36:28 2024 +0800
+
+    合并master和fix-B
+```
+这样就修改成功了，除了备注不一样，其他信息都一样。
+### git rebase -i-修改历史提交信息
+当我们提交了多次，但是发现这些提交工作树的内容都一样，或者无关紧要的好几次commit。如下：
+```bash
+$ git log
+
+
+commit 073bf4660dd303c42768dbd3dc2a6c7f68e854e9 (HEAD -> master)
+Author: lyroom <codingfish@outlook.com>
+Date:   Tue Oct 15 13:58:19 2024 +0800
+
+    又添加了几个空格,修改3次
+
+commit d81aa63d0f933bf1b0d49cb98a197eb55eb26c55
+Author: lyroom <codingfish@outlook.com>
+Date:   Tue Oct 15 13:56:44 2024 +0800
+
+    删除了几个多余字母,修改2次
+
+commit d63d466638457b1923c83d79b908e327e5fe56e7
+Author: lyroom <codingfish@outlook.com>
+Date:   Tue Oct 15 13:56:03 2024 +0800
+
+    删除了几个空格,修改1次
+```
+这些仅仅都是些微的修改，但是提交了多次，我们可以使用git rebase -i命令，修改合并这些提交信息。如下：  
+```bash
+git rebase -i HEAD~3 # 修改最近3次提交信息
+
+
+
+```
