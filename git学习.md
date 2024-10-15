@@ -118,7 +118,6 @@ Date:   Sat Oct 12 13:04:45 2024 +0800
 ```bash
 $ git log -p README.md
 
-
 ##以下是对比内容
 Author: lyroom <codingfish@outlook.com>
 Date:   Sat Oct 12 15:33:31 2024 +0800
@@ -133,6 +132,11 @@ index 5f9894b..ffbea86 100644
  第六次修改
 +第七次修改
 ```
+也可以以[图形的方式查看提交历史](#git-log-以图表的形式查看分支)
+```bash
+$ git log --graph
+```
+
 ### git diff-查看更改前后的区别
 
 git diff命令可以查看工作树、暂存区、仓库最新提交之间的差别。
@@ -378,3 +382,10 @@ git reset --hard hash值 #这个hash值就是每次commit后的hash值
 > | Author: lyroom <codingfish@outlook.com>
 >
 > | Date:   Mon Oct 14 16:15:19 2024 +0800
+### 创建分支fix-B
+当前状态：
+![](分支fix-B.png)
+fix-B的下一个目标：
+![](next.png)
+
+### 回溯到分支1合并后的状态
