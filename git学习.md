@@ -337,3 +337,44 @@ git log --graph
 ```bash
 git reset --hard hash值 #这个hash值就是每次commit后的hash值
 ```
+> 如果你没有做好标记寻找创建分支前的hash值的技巧：git log --graph ,找到分叉前的一个提交的hash值!，如下就是第8次修改的hash值
+>
+> | | Author: lyroom <codingfish@outlook.com>
+>
+> | | Date:   Mon Oct 14 16:59:48 2024 +0800
+>
+> | | 
+>
+> | |     master的第10次提交
+>
+> | | 
+>
+> \* | commit 7362bced26a2648153fac6779e4c5d2067eab42b
+>
+> |/  Author: lyroom <codingfish@outlook.com>
+>
+> |   Date:   Mon Oct 14 16:57:45 2024 +0800
+>
+> |   
+>
+> |       master下的第九次修改
+>
+> | 
+>
+> \* commit 61126b34e2330bad3945c616374df80de7346be1
+>
+> | Author: lyroom <codingfish@outlook.com>
+>
+> | Date:   Mon Oct 14 16:17:33 2024 +0800
+>
+> | 
+>
+> |     第8次修改
+>
+> | 
+>
+> \* commit ce7d1ccfd971bed9e79a3ececcdb67df97428692
+>
+> | Author: lyroom <codingfish@outlook.com>
+>
+> | Date:   Mon Oct 14 16:15:19 2024 +0800
