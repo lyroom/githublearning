@@ -239,8 +239,6 @@ git merge --no-ff 分支1
 git log --graph
 
 
-
-
 *   commit 307375175df620d5a6e9e913a0c92a61c5af91a7 (HEAD -> master)
 |\  Merge: 788c7a9 c4687fb
 | | Author: lyroom <codingfish@outlook.com>
@@ -276,4 +274,12 @@ git log --graph
 | * commit 3aa23441ddb6cdf4ff390d191b69850395fd2e6c
 | | Author: lyroom <codingfish@outlook.com>
 ......
+```
+## 三. 更改提交的操作
+### git reset-回溯历史版本
+为了有助于学习，我们先回到创建分支1的时候，然后创建一个fix—B的特性分支
+![](fix-B.png)
+#### 回到分支1创建前
+```bash
+git reset --hard hash值 #这个hash值就是每次commit后的hash值
 ```
