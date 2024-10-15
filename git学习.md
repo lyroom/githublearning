@@ -204,6 +204,13 @@ git checkout master #切换到主分支
 ```bash
 git checkout -
 ```
+### 分支的删除
+```bash
+git branch -d 分支名
+$ git branch -d 分支1
+
+已删除分支 分支1（曾为 6dfa1e7）。
+```
 ### 分支的分类
 在 GitHub 或 Git 版本控制系统中，**特性分支**（feature branch）和**主干分支**（通常是 `main` 或 `master` 分支）是两种常见的分支类型，它们用于不同的开发目的：
 
@@ -534,15 +541,69 @@ To https://github.com/lyroom/githublearning.git
 $ git checkout fix-B #切换到fix-B分支
 $ git push -u origin  fix-B #推送本地分支fix-B到远程仓库
 ```
+![](branchs.png)
 
-### 3.git pull-拉取远程仓库到本地仓库
-```bash
-$ git pull origin master #拉取远程仓库的master分支到本地仓库
-```
-
-### 4.git clone-克隆远程仓库到本地
+### 3.git clone-克隆远程仓库到本地
+#### 获取远程仓库（master）
+  首先我们切换到其他目录下
 ```bash
 $ git clone https://github.com/lyroom/githublearning.git #克隆远程仓库到本地
-```
 
-### 5.git branch-分支管理
+
+正克隆到 'githublearning'...
+remote: Enumerating objects: 132, done.
+remote: Counting objects: 100% (132/132), done.
+remote: Compressing objects: 100% (62/62), done.
+remote: Total 132 (delta 58), reused 131 (delta 57), pack-reused 0 (from 0)
+接收对象中: 100% (132/132), 1.18 MiB | 3.06 MiB/s, 完成.
+处理 delta 中: 100% (58/58), 完成.
+```
+执行完成之后我们默认处于master分支下，并且和远程仓库master/main分支的内容是一样的
+```bash
+$ git branch 
+* master
+```
+#### 获取远程仓库（非master）
+##### git branch -a-查看远程分支
+我们可以使用git branch -a查看远程和本地的分支
+```bash
+$ git branch -a
+* master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/fix-B
+  remotes/origin/master
+```
+可以看到本地只有master分支，远程有master和fix-B分支
+> 注意：我们已经切换了文件夹(gitlearning--->githublearning)，所以之前本地仓库只上传了master和fix-B分支,不要和之前的仓库搞混了
+##### git checkout -b-克隆远程仓库的fix-B分支到本地
+```bash
+$ git checkout -b fix-B origin/fix-B #克隆远程仓库的fix-B分支到本地
+  #-b：创建分支并切换到fix-B分支
+```
+##### 向本地的fix-B分支提交更改
+```bash
+$ git commit -am "向本地的fix-B添加了内容" #向本地的fix-B分支提交更改
+```
+##### 推送fix-B分支到远程仓库
+```bash
+$ git push #推送本地的fix-B分支到远程仓库
+
+
+
+枚举对象中: 5, 完成.
+对象计数中: 100% (5/5), 完成.
+使用 20 个线程进行压缩
+压缩对象中: 100% (3/3), 完成.
+写入对象中: 100% (3/3), 367 字节 | 367.00 KiB/s, 完成.
+总共 3（差异 1），复用 0（差异 0），包复用 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/lyroom/githublearning.git
+   083f020..bfde7fb  fix-B -> fix-B
+```
+### 3.git pull-拉取远程仓库到本地仓库
+
+刚刚在githublearning的仓库中修改了fix-B分支的内容并且上传到了github，但是我们gitlearnging仓库中的fix-B分支并没有更新，所以我们需要拉取远程仓库的fix-B分支到本地仓库
+> 注意要切换到最开始的项目目录(githublearning--->gitlearning)
+```bash
+$ git pull origin fix-B #拉取远程仓库的master分支到本地仓库
+```
